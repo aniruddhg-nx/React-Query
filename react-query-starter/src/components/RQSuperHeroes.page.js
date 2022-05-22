@@ -14,14 +14,16 @@ export const RQSuperHeroesPage = () => {
   // const { isLoading, data, isError, error, isFetching } = useQuery('super-heroes',
   // fetchSuperHeroes,
   // {
-  //   cacheTime: 5000
-  // })
+  //   refetchOnMount: false,
+  //   staleTime: 10000
+  // });
 
   // const { isLoading, data, isError, error, isFetching } = useQuery('super-heroes',
   // fetchSuperHeroes,
   // {
-  //   staleTime: 30000
-  // })
+  //   refetchOnWindowFocus: true,
+  //   staleTime: 10000
+  // });
 
   console.log({isLoading, isFetching});
   if (isLoading) {
