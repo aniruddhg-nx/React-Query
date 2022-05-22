@@ -1,13 +1,29 @@
 
    
-import { useQuery } from 'react-query'
-import axios from 'axios'
+import { useQuery } from 'react-query';
+import axios from 'axios';
+
+const fetchSuperHeroes =  () => {
+  return axios.get('http://localhost:4000/superheroes')
+};
 
 export const RQSuperHeroesPage = () => {
-  const { isLoading, data, isError, error } = useQuery('super-heroes', () => {
-    return axios.get('http://localhost:4000/superheroes')
-  })
+  const { isLoading, data, isError, error, isFetching } = useQuery('super-heroes',
+  fetchSuperHeroes);
 
+  // const { isLoading, data, isError, error, isFetching } = useQuery('super-heroes',
+  // fetchSuperHeroes,
+  // {
+  //   cacheTime: 5000
+  // })
+
+  // const { isLoading, data, isError, error, isFetching } = useQuery('super-heroes',
+  // fetchSuperHeroes,
+  // {
+  //   staleTime: 30000
+  // })
+
+  console.log({isLoading, isFetching});
   if (isLoading) {
     return <h2>Loading...</h2>
   }
